@@ -97,17 +97,95 @@
         2px 2px at 160px 30px,
         rgba(255, 255, 255, 0.9),
         transparent
+      ),
+      radial-gradient(
+        1px 1px at 200px 60px,
+        rgba(255, 255, 255, 0.7),
+        transparent
+      ),
+      radial-gradient(
+        3px 3px at 300px 20px,
+        rgba(255, 255, 255, 0.4),
+        transparent
       );
-    background-size: 200px 100px;
-    animation: float 20s infinite linear;
+    background-size: 400px 200px;
+    animation: stars-drift 30s infinite linear;
   }
 
-  @keyframes stars {
+  .star-field::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+      radial-gradient(
+        1px 1px at 60px 120px,
+        rgba(220, 38, 38, 0.8),
+        transparent
+      ),
+      radial-gradient(
+        2px 2px at 180px 200px,
+        rgba(220, 38, 38, 0.6),
+        transparent
+      ),
+      radial-gradient(
+        1px 1px at 320px 150px,
+        rgba(220, 38, 38, 0.4),
+        transparent
+      );
+    background-size: 400px 300px;
+    animation: stars-drift 25s infinite linear reverse;
+  }
+
+  @keyframes stars-drift {
     from {
       transform: translateX(0);
     }
     to {
-      transform: translateX(-200px);
+      transform: translateX(-400px);
     }
+  }
+
+  .hover-glow {
+    transition: all 0.3s ease;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .section-divider {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(220, 38, 38, 0.5),
+      transparent
+    );
+  }
+
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fade-in 0.8s ease-out forwards;
+  }
+
+  .fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: slide-in 0.8s ease-out forwards;
   }
 }
